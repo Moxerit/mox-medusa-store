@@ -1,59 +1,72 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+  // @ts-nocheck
+
+  import Footer from "../components/Footer.svelte";
+  import "../app.css";
+  import Navbar from "../components/Navbar.svelte";
+  import { writable, derived } from "svelte/store";
+
+  // export let data;
+  import {getProducts} from '../util/shared';
+
+  let products;
+    const productData = async () => {
+        const data = await getProducts();
+        products = data;
+        console.log(products, 'products')
+    }
+
+  $: productData()
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div>
+  <Navbar />
+   <div class="mt-40">
+    <div class="flex">
+      <div class="flex-grow text-4xl font-extrabold text-center">
+        Best Qualities You Can Trust
+      </div>
+    </div>
+    <div class="flex">
+      <div class="flex-grow text-4xl mt-12 font-extrabold text-center">
+        <a
+          href="/products"
+          class="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+          >Products</a
+        >
+      </div>
+    </div>
+    <div
+      class="max-w-12xl mx-auto h-full flex flex-wrap justify-center py-28 gap-10"
+    >
+    {#if products}
+      {#each products?.products as product, i}
+        <div class="">
+          <div
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+            class="rounded-lg shadow-lg bg-white max-w-sm"
+          >
+            <a
+              href={`/products/${product.id}`}
+              data-mdb-ripple="true"
+              data-sveltekit-prefetch
+              data-mdb-ripple-color="light"
+            >
+              <img class="rounded-t-lg" src={product.thumbnail} alt="" />
+            </a>
+            <div
+              class="bg-red-400 py-8 relative font-bold text-gray-100 text-xl w-full flex flex-col justify-center px-6"
+            >
+              <div class="">{product.title}</div>
+              <div class="">
+                &euro; {product.variants[0].prices[0].amount / 100}
+              </div>
+            </div>
+          </div>
+        </div>
+      {/each}
+      {/if}
+    </div>
+  </div>
+  <Footer />
+</div>
