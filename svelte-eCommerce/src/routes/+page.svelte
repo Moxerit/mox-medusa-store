@@ -59,7 +59,7 @@
             >
               <div class="">{product.title}</div>
               <div class="">
-                &euro; {product.variants[0].prices[0].amount / 100}
+                &dollar; {product.variants[0].prices[0].amount / 100}
               </div>
             </div>
           </div>

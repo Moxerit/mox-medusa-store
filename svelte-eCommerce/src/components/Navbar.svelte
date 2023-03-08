@@ -24,19 +24,13 @@
         </div>
       </a>
 
-      <div class="flex-grow font-bold text-lg">
-        <a href="/">
-          <span>Best Store</span>
-        </a>
-      </div>
-
       <div class="menu hidden md:flex flex-col md:flex-row mt-5 md:mt-0 gap-16">
         <div class="flex flex-col md:flex-row gap-12 capitalize">
           <div class="text-red-400 font-bold border-b border-red-400">
-            <a href="/">home</a>
+            <a href="/">Home</a>
           </div>
           <div class="text-red-400 font-bold border-b border-red-400">
-            <a href="/products">products</a>
+            <a href="/products">Products</a>
           </div>
         </div>
         <div class="flex gap-12">
