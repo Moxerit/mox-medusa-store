@@ -26,17 +26,17 @@
 
       <div class="menu hidden md:flex flex-col md:flex-row mt-5 md:mt-0 gap-16">
         <div class="flex flex-col md:flex-row gap-12 capitalize">
-          <div class="text-red-400 font-bold border-b border-red-400">
+          <div class="text-red-400 no-underline font-bold border-red-400">
             <a href="/">Home</a>
           </div>
-          <div class="text-red-400 font-bold border-b border-red-400">
+          <div class="text-red-400 no-underline font-bold border-red-400">
             <a href="/products">Products</a>
           </div>
         </div>
         <div class="flex gap-12">
           <a href="#/" class="hidden md:block">
             <div class="relative">
-              <Icon src="{AiOutlineShoppingCart}" />
+              <Icon size="25" src="{AiOutlineShoppingCart}" />
               {#if productId?.length >= 1}
               <div
                 class="absolute px-1 bg-red-400 -top-1 -right-1 rounded-full border-2 border-white text-white"

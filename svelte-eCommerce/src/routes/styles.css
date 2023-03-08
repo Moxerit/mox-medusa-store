@@ -14,9 +14,12 @@
 	--column-margin-top: 4rem;
 	font-family: var(--font-body);
 	color: var(--color-text);
+	
 }
 
 body {
+	
+	text-decoration: none;
 	min-height: 100vh;
 	margin: 0;
 	background-attachment: fixed;
@@ -29,6 +32,7 @@ body {
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
+
 
 h1,
 h2,
@@ -45,9 +49,6 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
 
 h1 {
 	font-size: 2rem;

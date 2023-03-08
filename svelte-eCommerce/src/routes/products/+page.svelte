@@ -45,11 +45,11 @@
             <img class="rounded-t-lg" src={product?.thumbnail} alt="" />
           </a>
           <div
-            class="bg-red-400 py-8 relative font-bold text-gray-100 text-xl w-full flex flex-col justify-center px-6"
+            class="bg-tower-black py-8 relative font-bold text-gray-100 text-xl w-full flex flex-col justify-center px-6"
           >
             <div class="">{product?.title}</div>
             <div class="">
-              &euro; {product?.variants[0]?.prices[0]?.amount / 100}
+              &dollar; {product?.variants[0]?.prices[0]?.amount / 100}
             </div>
           </div>
         </div>

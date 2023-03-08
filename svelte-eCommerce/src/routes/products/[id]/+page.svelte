@@ -158,7 +158,7 @@ $: fetchData();
                            variantsId = variant.id
                         }}
 
-                        class={currentSize === variant?.title?.split("/")[0] ? 'border-purple-300 bg-red-400' : 'border-gray-100'}
+                        class={currentSize === variant?.title?.split("/")[0] ? 'border-purple-300 bg-tower-black' : 'border-gray-100'}
                         contenteditable={false}
                       >
                         <span class="text-black text-sm">{variant?.title?.split("/")[0]}</span>
@@ -179,7 +179,7 @@ $: fetchData();
 
             </div>
             <button
-            class="bg-red-400 text-white font-bold py-2 px-4 rounded-full"
+            class="bg-tower-black text-white font-bold py-2 px-4 rounded-full"
             on:click={() => {
               if (variantsId === 0) {
                 alert("Please select a size before adding to cart.");

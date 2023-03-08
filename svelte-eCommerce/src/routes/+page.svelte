@@ -41,29 +41,34 @@
     >
     {#if products}
       {#each products?.products as product, i}
-        <div class="">
-          <div
 
-            class="rounded-lg shadow-lg bg-white max-w-sm"
-          >
-            <a
-              href={`/products/${product.id}`}
-              data-mdb-ripple="true"
-              data-sveltekit-prefetch
-              data-mdb-ripple-color="light"
-            >
-              <img class="rounded-t-lg" src={product.thumbnail} alt="" />
+      <div class="w-full max-w-sm bg-test rounded-2xl shadow hover:shadow-xl transition-all ease-in-out duration-250">
+        <a href={`/products/${product.id}`}
+        data-mdb-ripple="true"
+        data-sveltekit-prefetch
+        data-mdb-ripple-color="light">
+          <img class="rounded-t-lg" src={product.thumbnail} alt={product.title} />
+        </a>
+        <div class="px-6 pb-5 rounded-2xl bg-test">
+            <a href={`/products/${product.id}`}
+            data-mdb-ripple="true"
+            data-sveltekit-prefetch
+            data-mdb-ripple-color="light">
+                <h5 class="my-4 text-2xl font-semibold tracking-tight text-gray-900">{product.title}</h5>
             </a>
-            <div
-              class="bg-red-400 py-8 relative font-bold text-gray-100 text-xl w-full flex flex-col justify-center px-6"
-            >
-              <div class="">{product.title}</div>
-              <div class="">
-                &dollar; {product.variants[0].prices[0].amount / 100}
-              </div>
+            
+            <div class="flex items-center justify-between ">
+                <span class="text-3xl font-bold text-gray-900 ">&dollar;{product.variants[0].prices[0].amount / 100}</span>
+                <a href={`/products/${product.id}`}
+                data-mdb-ripple="true"
+                data-sveltekit-prefetch
+                data-mdb-ripple-color="light"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                Add to cart
+              </a>
             </div>
-          </div>
         </div>
+    </div>
       {/each}
       {/if}
     </div>
